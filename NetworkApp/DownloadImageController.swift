@@ -10,8 +10,7 @@ import UIKit
 class DownloadImageController: UIViewController {
     
     // MARK: - Properties
-    let urlString = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
-    
+//    let urlString = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
     public lazy var imageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
@@ -41,15 +40,15 @@ class DownloadImageController: UIViewController {
         ])
     }
     
-    public func getImage() {
-        guard let url = URL(string: urlString) else { return }
-        let session = URLSession.shared
-        session.dataTask(with: url) { data, response, error in
-            if let data = data, let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.imageView.image = image
-                }
-            }
-        }.resume()
-    }
+//    public func getImage() {
+//          guard let url = URL(string: urlString) else { return }
+//          let session = URLSession.shared
+//          session.dataTask(with: url) { data, response, error in
+//              if let data = data, let image = UIImage(data: data) {
+//                  DispatchQueue.main.async {
+//                      self.imageView.image = image
+//                  }
+//              }
+//          }.resume()
+//      }
 }

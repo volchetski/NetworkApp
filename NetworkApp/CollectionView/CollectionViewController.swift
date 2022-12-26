@@ -11,6 +11,8 @@ class CollectionViewController: UIViewController {
     
     // MARK: - Properties
     let array = ["Tap to download image", "GET", "PUT", "Unload"]
+    let urlString = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
+let destination = DownloadImageController()
     private lazy var itemsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -48,5 +50,16 @@ class CollectionViewController: UIViewController {
             itemsCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    public func getImage() {
+          guard let url = URL(string: urlString) else { return }
+          let session = URLSession.shared
+          session.dataTask(with: url) { data, response, error in
+              if let data = data, let image = UIImage(data: data) {
+                  DispatchQueue.main.async {
+                      self.destination.imageView.image = image
+                  }
+              }
+          }.resume()
+      }
 }
 

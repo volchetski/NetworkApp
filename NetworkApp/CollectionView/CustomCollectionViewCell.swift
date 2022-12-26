@@ -15,7 +15,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 25)
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 35)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -33,7 +34,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Methods
     private func setupCell() {
-        contentView.backgroundColor = .systemIndigo
+        contentView.backgroundColor = .systemGray
         contentView.addSubview(nameLabel)
     }
     

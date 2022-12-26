@@ -17,6 +17,15 @@ class DownloadImageController: UIViewController {
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
+    
+    public lazy var indicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.isHidden = true
+        indicator.startAnimating()
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +38,7 @@ class DownloadImageController: UIViewController {
     // MARK: - Methods
     private func addSubviews() {
         view.addSubview(imageView)
+        view.addSubview(indicator)
     }
     
     private func addConstraints() {
@@ -36,7 +46,10 @@ class DownloadImageController: UIViewController {
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            indicator.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+            indicator.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
         ])
     }
     

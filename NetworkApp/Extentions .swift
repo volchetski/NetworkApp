@@ -24,12 +24,13 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let destination = DownloadImageController()
-//               navigationController?.pushViewController(destination, animated: true)
-//               destination.getImage()
-        navigationController?.pushViewController(destination, animated: true)
-        getImage()
+        switch indexPath.row {
+        case 0:
+            navigationController?.pushViewController(destination, animated: true)
+            getImage()
+        case 1: getRequest()
+        case 2: print(indexPath.row)
+        default: return
+        }
     }
-    
-    
 }

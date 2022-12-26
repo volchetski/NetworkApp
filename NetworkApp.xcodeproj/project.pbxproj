@@ -19,6 +19,7 @@
 		84D61AFE295A0D0F0074EC3A /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D61AFD295A0D0F0074EC3A /* CourseViewController.swift */; };
 		84D61B01295A0D5B0074EC3A /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D61B00295A0D5B0074EC3A /* CustomTableViewCell.swift */; };
 		84D61B04295A0F6C0074EC3A /* WebsiteDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D61B03295A0F6C0074EC3A /* WebsiteDescription.swift */; };
+		84D61B08295A2C090074EC3A /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D61B07295A2C090074EC3A /* Actions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		84D61AFD295A0D0F0074EC3A /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		84D61B00295A0D5B0074EC3A /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		84D61B03295A0F6C0074EC3A /* WebsiteDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteDescription.swift; sourceTree = "<group>"; };
+		84D61B07295A2C090074EC3A /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				84D61AFA295A0C3F0074EC3A /* Course.swift */,
+				84D61B07295A2C090074EC3A /* Actions.swift */,
 				84D61B03295A0F6C0074EC3A /* WebsiteDescription.swift */,
 			);
 			path = Model;
@@ -203,6 +206,7 @@
 				84D61B01295A0D5B0074EC3A /* CustomTableViewCell.swift in Sources */,
 				84A58EA5295982CC0001160E /* AppDelegate.swift in Sources */,
 				84D61B04295A0F6C0074EC3A /* WebsiteDescription.swift in Sources */,
+				84D61B08295A2C090074EC3A /* Actions.swift in Sources */,
 				84D61AFE295A0D0F0074EC3A /* CourseViewController.swift in Sources */,
 				84A58EA7295982CC0001160E /* SceneDelegate.swift in Sources */,
 			);

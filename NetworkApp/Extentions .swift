@@ -11,7 +11,7 @@ import UIKit
 // MARK: - CollectionView
 extension CollectionViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return array.count
+        return itemArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -20,21 +20,24 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else { return UICollectionViewCell() }
-        cell.nameLabel.text = array[indexPath.row]
+        cell.nameLabel.text = itemArray[indexPath.row].rawValue
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
+        
+        let action = itemArray[indexPath.row]
+        
+        switch action{
+        case .downloadImage:
             navigationController?.pushViewController(destination, animated: true)
             getImage()
-        case 1: getRequest()
-        case 2: postRequest()
-        case 3:
+        case .get: getRequest()
+        case .post: postRequest()
+        case .ourCourses:
             let destinationTable = CourseViewController()
             navigationController?.pushViewController(destinationTable, animated: true)
-        default: return
+        case .uploadImage: print("Upload Image")
         }
     }
 }

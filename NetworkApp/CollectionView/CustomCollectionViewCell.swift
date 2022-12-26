@@ -35,6 +35,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
     // MARK: - Methods
     private func setupCell() {
         contentView.backgroundColor = .systemGray
+        contentView.layer.cornerRadius = 15
         contentView.addSubview(nameLabel)
     }
     

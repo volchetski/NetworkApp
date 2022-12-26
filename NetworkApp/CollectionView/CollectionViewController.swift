@@ -10,7 +10,8 @@ import UIKit
 class CollectionViewController: UIViewController {
     
     // MARK: - Properties
-    let array = ["Tap to download image", "GET", "POST", "Our courses"]
+    let itemArray = Actions.allCases
+//    let itemArray = ["Tap to download image", "GET", "POST", "Our courses", "Upload Image"]
     let urlString = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
     let requestUrl = "https://jsonplaceholder.typicode.com/posts"
 let destination = DownloadImageController()
@@ -36,7 +37,7 @@ let destination = DownloadImageController()
     //MARK: - Methods
     private func setupViews() {
         view.backgroundColor = .white
-        title = "Networking"
+        title = "Controls"
     }
     
     private func addSubviews() {

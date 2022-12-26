@@ -12,9 +12,8 @@ class CustomCollectionViewCell: UICollectionViewCell {
     //MARK: - Properties
     static let identifier = "CustomCollectionViewCell"
     
-    private lazy var nameLabel: UILabel = {
+    lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "AUF"
         label.textColor = .label
         label.font = .systemFont(ofSize: 25)
         label.translatesAutoresizingMaskIntoConstraints = false

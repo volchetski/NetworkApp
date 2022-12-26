@@ -10,6 +10,7 @@ import UIKit
 class CollectionViewController: UIViewController {
     
     // MARK: - Properties
+    let array = ["Tap to download image", "GET", "PUT", "Unload"]
     private lazy var itemsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical

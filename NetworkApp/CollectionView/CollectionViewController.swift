@@ -29,6 +29,7 @@ class CollectionViewController: UIViewController {
         addCounstraints()
     }
     
+    //MARK: - Methods
     private func setupViews() {
         view.backgroundColor = .white
         title = "Networking"
@@ -46,7 +47,5 @@ class CollectionViewController: UIViewController {
             itemsCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-
-
 }
 

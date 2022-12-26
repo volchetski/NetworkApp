@@ -9,6 +9,7 @@ import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {
     
+    //MARK: - Properties
     static let identifier = "CustomCollectionViewCell"
     
     private lazy var nameLabel: UILabel = {
@@ -31,6 +32,7 @@ class CustomCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
     private func setupCell() {
         contentView.backgroundColor = .systemIndigo
         contentView.addSubview(nameLabel)

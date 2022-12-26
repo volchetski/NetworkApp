@@ -10,7 +10,7 @@ import UIKit
 class CollectionViewController: UIViewController {
     
     // MARK: - Properties
-    let array = ["Tap to download image", "GET", "POST"]
+    let array = ["Tap to download image", "GET", "POST", "Our courses"]
     let urlString = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
     let requestUrl = "https://jsonplaceholder.typicode.com/posts"
 let destination = DownloadImageController()
@@ -76,6 +76,30 @@ let destination = DownloadImageController()
             
             do {
                 let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                print(json)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }.resume()
+    }
+    
+    public func postRequest() {
+        guard let url = URL(string: requestUrl) else { return }
+        let userData = ["Course": "Networking", "Lesson": "GET and POST Request"]
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: userData, options: []) else { return }
+        request.httpBody = httpBody
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { data, response, error in
+            guard let responsee = response, let data = data else { return }
+            print(response)
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
                 print(json)
             } catch {
                 print(error.localizedDescription)

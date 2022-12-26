@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: - CollectionView
 extension CollectionViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return array.count
@@ -29,8 +30,42 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout, UICollec
             navigationController?.pushViewController(destination, animated: true)
             getImage()
         case 1: getRequest()
-        case 2: print(indexPath.row)
+        case 2: postRequest()
+        case 3:
+            let destinationTable = CourseViewController()
+            navigationController?.pushViewController(destinationTable, animated: true)
         default: return
         }
+    }
+}
+
+//MARK: - TableView
+extension CourseViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        courses.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomCell else { return UITableViewCell() }
+        configureCell(cell: cell, for: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let course = courses[indexPath.row]
+        
+        courseURL = course.link
+        courseName = course.name
+        
+        let destination = DescriptionController()
+        destination.selectedCourse = courseName
+        destination.courseURL = courseURL!
+
+        navigationController?.pushViewController(destination, animated: true)
+        
     }
 }

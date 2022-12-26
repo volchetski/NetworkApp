@@ -10,13 +10,14 @@ import UIKit
 class CollectionViewController: UIViewController {
     
     // MARK: - Properties
-    
-    private let layout = UICollectionViewLayout()
     private lazy var itemsCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
 
